@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+ext {
+    jmonkeyVersion = '3.2.0-SNAPSHOT'
+}
+
+mainClassName = 'pl.rembol.jme3.tjug.Main'
+
+dependencies {
+    compile "org.jmonkeyengine:jme3-core:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-blender:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-plugins:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-desktop:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-effects:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-bullet:$jmonkeyVersion"
+    compile 'pl.rembol.jme3.game:common:0.0.1-SNAPSHOT'
+    runtime "org.jmonkeyengine:jme3-lwjgl:$jmonkeyVersion"
+    runtime "org.jmonkeyengine:jme3-bullet-native:$jmonkeyVersion"
+}

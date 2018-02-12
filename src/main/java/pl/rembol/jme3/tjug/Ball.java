@@ -2,6 +2,7 @@ package pl.rembol.jme3.tjug;
 
 import com.jme3.app.Application;
 import com.jme3.bullet.BulletAppState;
+import com.jme3.bullet.collision.shapes.SphereCollisionShape;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.font.BitmapText;
 import com.jme3.material.Material;
@@ -25,7 +26,7 @@ public class Ball extends Node {
     private static final int TEX_SIZE = 128;
 
     public Ball(Application application, Node rootNode, Vector3f position, String text) {
-        Sphere sphere = new Sphere(4, 6, 1f);
+        Sphere sphere = new Sphere(6, 12, 1f);
 
         Texture2D texture = prepareTexture(application, text);
 
@@ -40,7 +41,7 @@ public class Ball extends Node {
         setLocalTranslation(position);
         rootNode.attachChild(this);
 
-        RigidBodyControl rigidBodyControl = new RigidBodyControl(1f);
+        RigidBodyControl rigidBodyControl = new RigidBodyControl(new SphereCollisionShape(1f), 1f);
         addControl(rigidBodyControl);
         rigidBodyControl.setKinematic(true);
         application.getStateManager().getState(BulletAppState.class).getPhysicsSpace().add(rigidBodyControl);

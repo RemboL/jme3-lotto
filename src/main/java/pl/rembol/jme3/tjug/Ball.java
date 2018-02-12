@@ -8,6 +8,8 @@ import com.jme3.font.BitmapText;
 import com.jme3.material.Material;
 import com.jme3.material.RenderState;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.FastMath;
+import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.renderer.ViewPort;
@@ -35,6 +37,7 @@ public class Ball extends Node {
         material.setColor("Ambient", ColorRGBA.White);
         material.setColor("Specular", ColorRGBA.White);
         Geometry geometry = new Geometry("ball", sphere);
+        geometry.setLocalRotation(new Quaternion().fromAngleAxis(-FastMath.HALF_PI, Vector3f.UNIT_X));
         geometry.setMaterial(material);
 
         attachChild(geometry);

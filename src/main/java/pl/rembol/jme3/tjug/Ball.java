@@ -46,6 +46,7 @@ public class Ball extends Node {
         rigidBodyControl.setKinematic(true);
         application.getStateManager().getState(BulletAppState.class).getPhysicsSpace().add(rigidBodyControl);
         setShadowMode(RenderQueue.ShadowMode.Receive);
+        setUserData("number", text);
     }
 
     private Texture2D prepareTexture(Application application, String text) {
